@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Action to open To-do Task list -->
+    <act_window id="df"
+      name="balance_sheet_analysis.balance_analysis"
+      res_model="account.move.line"
+      view_mode="tree,form" />
+    <!-- Menu item to open To-do Task list -->
+    <menuitem id="menu_todo_task"
+      name="Todos"
+      action="df" />
+</odoo>

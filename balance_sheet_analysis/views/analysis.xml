@@ -1,0 +1,31 @@
+<odoo>
+
+<template id="business_analysis">
+  <t t-call="report.html_container">
+    <t t-call="report.external_layout">
+      <div class="page">
+
+        <!-- Report page content -->
+        <table class="table table-stripped">
+          <tr>
+            <th>Title</th>
+            <th>Owner</th>
+            <th>DeadWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWline</th>
+          </tr>
+        <t t-foreach="docargs" t-as="o">
+          <th>JJJJJJJJJJJJJJJJJJJJJJJJJJJJ</th>
+          <tr>
+              <td class="col-xs-6">
+                  <span t-field="o.balance" />
+              </td>
+         
+          </tr>
+        </t>
+        </table>
+
+      </div>
+    </t>
+  </t>
+</template>
+
+</odoo>
