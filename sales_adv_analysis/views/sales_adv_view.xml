@@ -3,7 +3,7 @@
     <!-- Action to open To-do Task list -->
     <act_window id="action_todo_task"
       name="Sales Adv Analysis"
-      res_model="product.product"
+      res_model="sale.order"
       view_mode="tree,form" />
     <!-- Menu item to open To-do Task list -->
     <menuitem id="menu_todo_task"

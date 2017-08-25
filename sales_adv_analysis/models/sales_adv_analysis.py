@@ -13,10 +13,12 @@ class SaleOrder(models.Model):
         Compute the total amounts of the SO Adv Cost.
         """
         for order in self:
+            advertising = 0.0
             for line in order.order_line:
-                # FORWARDPORT UP TO 10.0
-                adv_cost = line.adv_cost
+                advertising += line.product_id.adv_cost
+            print(line.order_id,'  ',advertising)
+
             order.update({
-                'advertising': order.adv_cost
+                'advertising': advertising
            
             })
