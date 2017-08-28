@@ -3,9 +3,8 @@
 from odoo import models, fields, api
 
 
-class SalesAdvAnalysis(models.AbstractModel):
-    _name = 'report.sales_adv_analysis.salesadv_analysis'
-    _inherit = 'sale.order'
+class SalesAdvReport(models.AbstractModel):
+    _name = 'report.sales_adv_analysis.salesadv_report'
     print(' SALE ADV')
     
     def _get_dataframe(self, report):
@@ -23,7 +22,7 @@ class SalesAdvAnalysis(models.AbstractModel):
         self.model = self.env.context.get('active_model')
         docs = self.env[self.model].browse(self.env.context.get('active_id'))
         report_lines = self.with_context(data['form'].get('used_context'))._get_accounts(accounts, display_account)
-        df = pd.DataFrame(report_lines)
+        df = self._get_dataframe(report_lines)
         print('yessssssssssssssssssssssssssssssssssssssssssssssssssssssss\n\n')
         # print('report_lines ::', report_lines)
         # print('\n\n type(report_lines):',type(report_lines))
