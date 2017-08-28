@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="salesadv_report">
+    <t t-call="report.html_container">
+        <t t-call="report.internal_layout">
+            <div class="page">
+                <div class="row">
+                    <h3>Title</h3>
+                </div>
+            </div>
+        </t>
+    </t>
+</template>

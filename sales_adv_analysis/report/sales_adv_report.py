@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 
 class SalesAdvReport(models.AbstractModel):
-    _name = 'report.sales_adv_analysis.salesadv_report'
+    _name = 'report.sales_adv_analysis.report_salesadv'
     print(' SALE ADV')
     
     def _get_dataframe(self, report):

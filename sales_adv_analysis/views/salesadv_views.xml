@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="action_report_salesadv"
+            model="report.sales_adv_analysis.salesadv_report"
+            string="Sales Advertising report"
+            report_type="qweb-pdf"
+            name="sales_adv_report.report_saleadv"
+            file="sales_adv_report.report_saleadv"
+            />
+    </data>
+</odoo>
