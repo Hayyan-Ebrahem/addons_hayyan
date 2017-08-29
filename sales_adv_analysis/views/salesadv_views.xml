@@ -1,13 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <odoo>
-    <data>
-        <report 
-            id="action_report_salesadv"
-            model="report.sales_adv_analysis.salesadv_report"
-            string="Sales Advertising report"
-            report_type="qweb-pdf"
-            name="sales_adv_report.report_saleadv"
-            file="sales_adv_report.report_saleadv"
-            />
-    </data>
+
+    <record id="account_report_balance_view" model="ir.ui.view">
+        <field name="name">Sales Adv</field>
+        <field name="model">sale.adv.report</field>
+        <field name="arch" type="xml">
+   
+        </field>
+    </record>
+
+    <record id="action_account_balance_menu" model="ir.actions.act_window">
+        <field name="name">Trial Balance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.balance.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="account_report_balance_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_general_Balance_report"
+        name="Trial Balance"
+        parent="account.menu_finance_legal_statement"
+        action="action_account_balance_menu"/>
+<!-- 
+    <record id="action_account_balance_report_values1" model="ir.values">
+        <field name="model_id" ref="account.model_account_account" />
+        <field name="name">Trial Balance</field>
+        <field name="key2">client_print_multi</field>
+        <field name="value" eval="'ir.actions.act_window,' +str(ref('action_account_balance_menu'))" />
+        <field name="key">action</field>
+        <field name="model">account.account</field>
+    </record> -->
+
 </odoo>

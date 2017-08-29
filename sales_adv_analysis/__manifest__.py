@@ -29,8 +29,8 @@
         'views/templates.xml',
         'views/salesadv_views.xml',
         'views/salesadv_report.xml',
-        'views/report_salesadv.xml',
-        'views/salesadv_report_template.xml'
+        #'views/report_salesadv.xml',
+        #'views/salesadv_report_template.xml'
        
     ],
     # only loaded in demonstration mode

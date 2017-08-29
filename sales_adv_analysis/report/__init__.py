@@ -1,1 +1,1 @@
-import sales_adv_report
+import salesadv_report
