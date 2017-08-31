@@ -22,11 +22,12 @@ class ReportSalesAdv(models.AbstractModel):
         self.model = self.env.context.get('active_model')
         docs = self.env[self.model].browse(self.env.context.get('active_id'))
         sales_records = []
-        orders = self.env['sale.order'].search([('user_id', '=', docs.company_id.id)])
+        orders = self.env['sale.order'].search([('company_id', '=', docs.company_id.id)])
         if docs.date_from and docs.date_to:
             for order in orders:
+                order._compute_adv_cost()
                 sales_records.append(order);
-
+        print('=========== sales_records',sales_records)
         docargs = {
             'doc_ids': self.ids,
             'doc_model': self.model,

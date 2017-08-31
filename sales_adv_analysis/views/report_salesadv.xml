@@ -6,7 +6,7 @@
            
             <div class="page">
                     <div>
-                    	<span style="font-size: 18px;">Sales Person</span> : <span style="font-size: 16px;" t-esc="docs.salesadv_id.name"/>
+                    	<span style="font-size: 18px;">Sales Advertising Analysis</span> : <span style="font-size: 16px;" t-esc="docs.company_id.name"/>
                     </div>
 
                     <div class="row mt32 mb32">
@@ -18,17 +18,22 @@
                         </div>
                     </div>
             
-             <table>
-           <tbody>
+     <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Sale Order Number</th>
+                                <th class="text-right">advertising</th>
+                                <th class="text-right">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr t-foreach="orders" t-as="a">
                                 <td>
                                     <span t-esc="a.name" />
                                 </td>
+                              
                                 <td class="text-right" style="white-space: text-nowrap;">
-                                    <span t-esc="a.date_order" />
-                                </td>
-                                <td class="text-right" style="white-space: text-nowrap;">
-                                    <span t-esc="a.partner_id.name" />
+                                    <span t-esc="a.advertising" />
                                 </td>
                                 <td class="text-right" style="white-space: text-nowrap;">
                                     <span t-field="a.amount_total" t-options='{"widget": "monetary", "display_currency": a.company_id.currency_id}' />
