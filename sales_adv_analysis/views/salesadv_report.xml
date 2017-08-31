@@ -1,12 +1,13 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Action to open To-do Task list -->
-    <act_window id="action_todo_task"
-      name="Sales Adv Analysis"
-      res_model="sale.order"
-      view_mode="tree,form" />
-    <!-- Menu item to open To-do Task list -->
-    <menuitem id="menu_todo_task"
-      name="salesadvs"
-      action="action_todo_task" />
+    <data>
+        <report 
+            id="report_sale_adv"
+            string="Sales Advertising"
+            model="report.sales_adv_analysis.report_salesadv" 
+            report_type="qweb-pdf"
+            file="saleadv.report_saleadv" 
+            name="saleadv.report_saleadv" 
+        />
+    </data>
 </odoo>

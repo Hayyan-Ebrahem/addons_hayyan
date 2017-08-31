@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 
-class SalesAdvReport(models.AbstractModel):
+class ReportSalesAdv(models.AbstractModel):
     _name = 'report.sales_adv_analysis.report_salesadv'
     print(' SALE ADV')
     
@@ -35,4 +35,4 @@ class SalesAdvReport(models.AbstractModel):
             'time': time,
             'get_account_lines': report_lines,
         }
-        return self.env['report'].render('sales_adv-analysis.report_salesadv', docargs)
+        return self.env['report'].render('sales_adv_analysis.report_salesadv', docargs)
