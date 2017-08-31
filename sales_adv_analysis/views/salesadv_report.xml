@@ -2,12 +2,12 @@
 <odoo>
     <data>
         <report 
-            id="report_sale_adv"
+            id="action_report_salesadv"
             string="Sales Advertising"
             model="report.sales_adv_analysis.report_salesadv" 
             report_type="qweb-pdf"
-            file="saleadv.report_saleadv" 
-            name="saleadv.report_saleadv" 
+            file="sales_adv_analysis.report_saleadv" 
+            name="sales_adv_analysis.report_saleadv" 
         />
     </data>
 </odoo>

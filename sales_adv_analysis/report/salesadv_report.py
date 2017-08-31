@@ -21,7 +21,7 @@ class ReportSalesAdv(models.AbstractModel):
     def render_html(self, docids, data=None):
         self.model = self.env.context.get('active_model')
         docs = self.env[self.model].browse(self.env.context.get('active_id'))
-        report_lines = self.with_context(data['form'].get('used_context'))._get_accounts(accounts, display_account)
+        report_lines = self.with_context(data['form'].get('used_context'))._compute_current_ratio()
         #df = self._get_dataframe(report_lines)
         print('yessssssssssssssssssssssssssssssssssssssssssssssssssssssss\n\n')
         # print('report_lines ::', report_lines)

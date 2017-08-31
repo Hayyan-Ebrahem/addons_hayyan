@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<template id="sales_adv_analysis.report_salesadv">
+<template id="report_salesperson">
     <t t-call="report.html_container">
-        <t t-call="report.internal_layout">
-           
-            <div class="page">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="report.internal_layout">
+                <div class="page">
                     <div>
-                    	<span style="font-size: 18px;">Sales Person</span> : <span style="font-size: 16px;" t-esc="docs.salesadv_id.name"/>
+                    	<span style="font-size: 18px;">Sales Person</span> : <span style="font-size: 16px;" t-esc="docs.salesperson_id.name"/>
                     </div>
 
                     <div class="row mt32 mb32">
@@ -17,9 +17,17 @@
                             </p>
                         </div>
                     </div>
-            
-             <table>
-           <tbody>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Quotation Number</th>
+                                <th class="text-right">Order Date</th>
+                                <th class="text-right">Customer</th>
+                                <th class="text-right">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr t-foreach="orders" t-as="a">
                                 <td>
                                     <span t-esc="a.name" />
@@ -36,9 +44,9 @@
                             </tr>
                         </tbody>
                     </table>
-            </div>
+                </div>
+            </t>
         </t>
     </t>
-
 </template>
 </odoo>

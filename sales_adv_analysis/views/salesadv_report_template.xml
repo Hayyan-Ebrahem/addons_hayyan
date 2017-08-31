@@ -4,7 +4,7 @@
     <t t-call="report.html_container">
         <t t-call="report.internal_layout">
             <div class="page">
-                <h2> Trial Balance</h2>
+                <h2> df</h2>
             </div>
 
         </t>

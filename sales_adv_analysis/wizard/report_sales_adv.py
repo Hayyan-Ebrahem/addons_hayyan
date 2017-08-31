@@ -1,16 +1,26 @@
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class SalesAdvReport(models.TransientModel):
-    _name = 'salesadv.report'
-    _description = 'rfrfrferfref'
 
-    salesadv_id = fields.Many2one('res.users', required=True)
+    _name = 'salesadv.report'
+    _description = 'Sales Advertising Report'
+
+    company_id = fields.Many2one('res.company', required=True)
     date_from = fields.Datetime(string='Start Date')
     date_to = fields.Datetime(string='End Date')
 
+ 
+
+    @api.multi
+    def check_report(self):
+        data = {}
+        data['form'] = self.read(['company_id', 'date_from', 'date_to'])[0]
+        return self._print_report(data)
+
     def _print_report(self, data):
-        data = self.pre_print_report(data)
-        records = self.env[data['model']].browse(data.get('ids', []))
-        return self.env['report'].get_action(records, 'sales_adv_analysis.report_salesadv', data=data)
+    	data['form'].update(self.read(['company_id', 'date_from', 'date_to'])[0])
+        print('+++++++++++_______-----------',data,' self :',self)
+     
+        return self.env['report'].get_action(self, 'sales_adv_analysis.report_salesadv', data=data)

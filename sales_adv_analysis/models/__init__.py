@@ -2,4 +2,4 @@
 
 from . import models
 import product_template
-import sales_adv_analysis
+import sale_order
