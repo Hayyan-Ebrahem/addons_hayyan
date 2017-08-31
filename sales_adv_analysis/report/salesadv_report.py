@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import time
 from odoo import models, fields, api
 
 
@@ -14,18 +14,18 @@ class ReportSalesAdv(models.AbstractModel):
     # 	return df
     	
 
-    def _compute_current_ratio(self,report):
-    	return ' CURRENT RATIO'
+    # def _compute_current_ratio(self):
+    # 	return ' CURRENT RATIO'
 
     @api.model
     def render_html(self, docids, data=None):
         self.model = self.env.context.get('active_model')
         docs = self.env[self.model].browse(self.env.context.get('active_id'))
-        report_lines = self.with_context(data['form'].get('used_context'))._compute_current_ratio()
-        #df = self._get_dataframe(report_lines)
-        print('yessssssssssssssssssssssssssssssssssssssssssssssssssssssss\n\n')
-        # print('report_lines ::', report_lines)
-        # print('\n\n type(report_lines):',type(report_lines))
+        sales_records = []
+        orders = self.env['sale.order'].search([('user_id', '=', docs.company_id.id)])
+        if docs.date_from and docs.date_to:
+            for order in orders:
+                sales_records.append(order);
 
         docargs = {
             'doc_ids': self.ids,
@@ -33,6 +33,6 @@ class ReportSalesAdv(models.AbstractModel):
             'data': data['form'],
             'docs': docs,
             'time': time,
-            'get_account_lines': report_lines,
+            'orders': sales_records,
         }
         return self.env['report'].render('sales_adv_analysis.report_salesadv', docargs)

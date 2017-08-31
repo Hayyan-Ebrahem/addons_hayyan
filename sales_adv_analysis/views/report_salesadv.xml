@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<template id="sales_adv_analysis.report_salesadv">
+<template id="report_salesadv">
     <t t-call="report.html_container">
         <t t-call="report.internal_layout">
            

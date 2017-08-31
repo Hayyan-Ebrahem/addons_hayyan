@@ -28,9 +28,9 @@
         'views/product_views.xml',
         #'views/templates.xml',
         #'views/salesadv_views.xml',
-        #'views/salesadv_report.xml',
+        'views/salesadv_report.xml',
         'views/report_salesadv.xml',
-        'views/salesadv_report_template.xml',
+        #'views/salesadv_report_template.xml',
         'wizard/report_sales_adv_views.xml',
        
     ],

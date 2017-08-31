@@ -3,7 +3,7 @@
 <odoo>
 
     <record id="report_salesadv_view" model="ir.ui.view">
-        <field name="name">jnfdlef ewfewjf</field>
+        <field name="name">Sales Advertising Report</field>
         <field name="model">salesadv.report</field>
         <field name="arch" type="xml">
             <form>
@@ -23,7 +23,7 @@
         </field>
     </record>
 
-    <record id="action_salesadv_menu" model="ir.actions.act_window">
+    <record id="action_salesadv" model="ir.actions.act_window">
         <field name="name">Sales Adv</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">salesadv.report</field>
@@ -33,10 +33,10 @@
         <field name="target">new</field>
     </record>
 
-    <menuitem id="action_salesadv_menu"
+    <menuitem id="sale_salesadv_analysis"
         name="Sales Advertising"
         parent="sales_team.menu_sale_report" 
-        action="action_salesadv_menu"/>
+        action="action_salesadv"/>
 
  
 </odoo>
