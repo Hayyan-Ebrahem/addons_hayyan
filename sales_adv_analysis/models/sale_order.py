@@ -7,7 +7,7 @@ class SaleOrder(models.Model):
 
     advertising = fields.Float(compute='_compute_adv_cost', digits=dp.get_precision('Product Adv Price'), store=True)
 
-    @api.onchange('order_line.product_id.adv_cost')
+    @api.depends('order_line.product_id.adv_cost')
     def _compute_adv_cost(self):
         """
         Compute the total amounts of the SO Adv Cost.

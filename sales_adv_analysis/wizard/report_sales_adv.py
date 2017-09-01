@@ -7,7 +7,6 @@ class SalesAdvReport(models.TransientModel):
     _name = 'salesadv.report'
     _description = 'Sales Advertising Report'
 
-    company_id = fields.Many2one('res.company', required=True)
     date_from = fields.Datetime(string='Start Date')
     date_to = fields.Datetime(string='End Date')
 
@@ -16,11 +15,11 @@ class SalesAdvReport(models.TransientModel):
     @api.multi
     def check_report(self):
         data = {}
-        data['form'] = self.read(['company_id', 'date_from', 'date_to'])[0]
+        data['form'] = self.read(['date_from', 'date_to'])[0]
         return self._print_report(data)
 
     def _print_report(self, data):
-    	data['form'].update(self.read(['company_id', 'date_from', 'date_to'])[0])
+    	data['form'].update(self.read(['date_from', 'date_to'])[0])
         print('+++++++++++_______-----------',data,' self :',self)
      
         return self.env['report'].get_action(self, 'sales_adv_analysis.report_salesadv', data=data)

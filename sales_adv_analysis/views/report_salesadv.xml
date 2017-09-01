@@ -5,9 +5,7 @@
         <t t-call="report.internal_layout">
            
             <div class="page">
-                    <div>
-                    	<span style="font-size: 18px;">Sales Advertising Analysis</span> : <span style="font-size: 16px;" t-esc="docs.company_id.name"/>
-                    </div>
+                
 
                     <div class="row mt32 mb32">
                         <div class="col-xs-4">
@@ -29,11 +27,11 @@
                         <tbody>
                             <tr t-foreach="orders" t-as="a">
                                 <td>
-                                    <span t-esc="a.name" />
+                                    <span t-esc="a.all" />
                                 </td>
                               
                                 <td class="text-right" style="white-space: text-nowrap;">
-                                    <span t-esc="a.advertising" />
+                                    <span t-esc="a.all" />
                                 </td>
                                 <td class="text-right" style="white-space: text-nowrap;">
                                     <span t-field="a.amount_total" t-options='{"widget": "monetary", "display_currency": a.company_id.currency_id}' />
