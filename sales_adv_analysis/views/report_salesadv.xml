@@ -15,8 +15,14 @@
                             </p>
                         </div>
                     </div>
+                    <div>
+                        <t t-esc="orders">
+                       
+                        </t>
+           
+                    </div>    
             
-     <table class="table table-condensed">
+<!--      <table class="table table-condensed">
                         <thead>
                             <tr>
                                 <th>Sale Order Number</th>
@@ -38,7 +44,7 @@
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
             </div>
         </t>
     </t>
