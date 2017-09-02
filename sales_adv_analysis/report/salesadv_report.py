@@ -18,7 +18,6 @@ class ReportSalesAdv(models.AbstractModel):
             res['total'] = order.amount_total
             res['advertising'] = order.advertising
             sales_records.append(res)
-            
         df = pd.DataFrame(sales_records)
 
         return df

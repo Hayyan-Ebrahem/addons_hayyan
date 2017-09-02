@@ -4,5 +4,8 @@
     'author': 'Hayyan Ebrahem',
     'depends': ['base','report','account'],
     'application': True,
-    'data': ['views/analysis.xml','views/templates.xml','views/todo_menu.xml']#,'report/analysis.xml']
+    'data': [
+        'views/balance_sheet_analysis_report.xml',
+        'views/report_balance_sheet_analysis.xml',
+        'wizard/report_balance_sheet_analysis_views.xml']#,'report/analysis.xml']
 }

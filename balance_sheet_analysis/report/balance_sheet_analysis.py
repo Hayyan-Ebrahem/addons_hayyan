@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 
 class BalanceAnalysis(models.AbstractModel):
-    _name = 'report.balance_sheet_analysis.balance_analysis'
+    _name = 'report.balance_sheet_analysis.report_sheetanalysis'
     #_inherit = 'report.account.report_financial'
     print(' BALANCE_SHEET')
     
