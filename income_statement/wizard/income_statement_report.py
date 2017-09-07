@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*-
+
 
 from odoo import api, fields, models
 
 
-class AccountingReport(models.TransientModel):
-    _name = "accounting.report"
-    _inherit = "account.common.report"
-    _description = "Accounting Report"
+class IncomeStatementReport(models.TransientModel):
+    _name = "income.statement.report"
+    _description = "Income Statement"
 
     @api.model
     def _get_account_report(self):
@@ -14,8 +13,9 @@ class AccountingReport(models.TransientModel):
         if self._context.get('active_id'):
             menu = self.env['ir.ui.menu'].browse(self._context.get('active_id')).name
             reports = self.env['account.financial.report'].search([('name', 'ilike', menu)])
+            print('111111111111111111111111 Wizard accounting.report menu:',menu,' reports :',reports)
         return reports and reports[0] or False
-
+    print('[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[')
     enable_filter = fields.Boolean(string='Enable Comparison')
     account_report_id = fields.Many2one('account.financial.report', string='Account Reports', required=True, default=_get_account_report)
     label_filter = fields.Char(string='Column Label', help="This label will be displayed on report to show the balance computed for the given comparison filter.")

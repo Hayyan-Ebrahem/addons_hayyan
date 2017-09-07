@@ -10,7 +10,7 @@
         Long description of module's purpose
     """,
 
-    'author': "My Company",
+    'author': "hayyan Ebrahem",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -25,7 +25,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        #'views/income_statement_report_data.xml',
+        'views/income_statement_report_data.xml',
         'views/account_report.xml',
         'wizard/income_statement_report_view.xml'
     ],

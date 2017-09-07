@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="accounting_report_view" model="ir.ui.view">
+
+   <record id="accounting_report_view" model="ir.ui.view">
         <field name="name">Accounting Report</field>
         <field name="model">accounting.report</field>
         <field name="inherit_id" ref="account.account_common_report_view"/>
+
         <field name="arch" type="xml">
             <field name="target_move" position="before">
                 <field name="account_report_id" domain="[('parent_id','=',False)]"/>
@@ -12,13 +14,11 @@
                 <field name="enable_filter"/>
                 <field name="debit_credit" attrs="{'invisible': [('enable_filter','=',True)]}"/>
             </field>
-     
-            
+  
         </field>
     </record>
 
-
-    <record id="action_account_report_bs" model="ir.actions.act_window">
+    <record id="action_income_statement_report_bs" model="ir.actions.act_window">
         <field name="name">Income Statement</field>
         <field name="res_model">accounting.report</field>
         <field name="type">ir.actions.act_window</field>
@@ -26,13 +26,13 @@
         <field name="view_mode">form</field>
         <field name="view_id" ref="accounting_report_view"/>
         <field name="target">new</field>
-        <field name="context" context="{'default_account_report_id': 21}"/>
+        <field name="context" eval="{'default_account_report_id':ref('income_statement.income_statement_incomestatement0')}"/>
     </record>
 
 
     <menuitem id="income_statement"
         name="Income Statement"
         parent="account.menu_finance_legal_statement" 
-        action="action_account_report_bs"/>
+        action="action_income_statement_report_bs"/>
 
 </odoo>
