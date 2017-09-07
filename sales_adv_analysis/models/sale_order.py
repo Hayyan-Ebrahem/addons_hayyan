@@ -2,8 +2,9 @@ from odoo import api, fields, models
 import odoo.addons.decimal_precision as dp
 
 
-class SaleOrder(models.Model):
-    _inherit = 'sale.order'
+class Product(models.Model):
+    _name = 'product.product'
+    _inherit = 'product.product'
 
     advertising = fields.Float(compute='_compute_adv_cost', digits=dp.get_precision('Product Adv Price'), store=True)
 
@@ -14,8 +15,10 @@ class SaleOrder(models.Model):
         """
         for order in self:
             advertising = 0.0
-            for line in order.order_line:
-                advertising += line.product_id.adv_cost
+            print('---------- self.cost :',self.cost)
+            if self.cost != 0:
+                for line in order.order_line:
+                    advertising += line.product_id.adv_cost
 
             order.update({
                 'advertising': advertising

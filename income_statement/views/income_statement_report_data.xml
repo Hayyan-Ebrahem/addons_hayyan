@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="income_statement_incomestatement0" model="income.statement.report">
+            <field name="name">Income Statement</field>
+            <field name="type">sum</field>
+        </record>
+    </data>
+</odoo>

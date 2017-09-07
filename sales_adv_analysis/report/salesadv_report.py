@@ -5,7 +5,7 @@ import pandas as pd
 
 class ReportSalesAdv(models.AbstractModel):
     _name = 'report.sales_adv_analysis.report_salesadv'
-    
+    print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
     def _get_dataframe(self):
     	print('self:',self)
         self.model = self.env.context.get('active_model')
@@ -41,6 +41,6 @@ class ReportSalesAdv(models.AbstractModel):
             'data': data['form'],
             'docs': docs,
             'time': time,
-            'orders': account_res.to_html(),
+            'orders': df.to_html(),
         }
         return self.env['report'].render('sales_adv_analysis.report_salesadv', docargs)

@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div>
-                        <t t-esc="get_account_lines">
+                        <t t-esc="orders">
                        
                         </t>
            
