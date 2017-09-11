@@ -11,4 +11,4 @@ import odoo.addons.decimal_precision as dp
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
-    advertising_cost = fields.Float('Adv Cost', digits=dp.get_precision('Product Price'), store=True, default=2.0)
+    adv_cost = fields.Float('Advertising Costs', digits=dp.get_precision('Product Price'), store=True, default=2.0)

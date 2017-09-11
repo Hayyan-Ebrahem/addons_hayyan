@@ -10,6 +10,7 @@ from odoo import api, models, fields
 
 class income_statement_report(models.Model):
     _name = "income.statement.report"
+    _inherit = "account.account"
     _description = "Account Report"
 
     @api.multi
@@ -27,7 +28,7 @@ class income_statement_report(models.Model):
         '''returns a recordset of all the children computed recursively, and sorted by sequence. Ready for the printing'''
         res = self
         children = self.search([('parent_id', 'in', self.ids)], order='sequence ASC')
-        print('11111111111 self: ',self,' self.ids:',self.ids)
+        print('11111111111 self: ',self,' children',children)
  
         if children:
             for child in children:

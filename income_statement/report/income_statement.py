@@ -173,4 +173,4 @@ class IncomeStatement(models.AbstractModel):
             'time': time,
             'get_account_lines': report_lines,
         }
-        return self.env['report'].render('account.report_financial', docargs)
+        return self.env['report'].render('account.report_incomestatement', docargs)

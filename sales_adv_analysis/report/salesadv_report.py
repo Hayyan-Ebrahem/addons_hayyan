@@ -34,13 +34,13 @@ class ReportSalesAdv(models.AbstractModel):
         docs = self.env[self.model].browse(self.env.context.get('active_id'))
         account_res = self._get_dataframe()
         print('============ ::',account_res)
-
+      
         docargs = {
             'doc_ids': self.ids,
             'doc_model': self.model,
             'data': data['form'],
             'docs': docs,
             'time': time,
-            'orders': df.to_html(),
+            'orders': account_res,
         }
         return self.env['report'].render('sales_adv_analysis.report_salesadv', docargs)

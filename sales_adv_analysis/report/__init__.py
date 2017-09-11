@@ -1,1 +1,2 @@
 import salesadv_report
+import sale_report
