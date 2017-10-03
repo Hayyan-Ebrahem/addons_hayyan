@@ -1,1 +1,1 @@
-from . import report_balance_sheet_analysis
+import report_balance_sheet_analysis

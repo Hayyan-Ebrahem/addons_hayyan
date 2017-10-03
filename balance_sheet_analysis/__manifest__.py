@@ -2,7 +2,7 @@
     'name': 'Balance Sheet Analysis Application',
     'description': 'Manage personal To-Do tasks',
     'author': 'Hayyan Ebrahem',
-    'depends': ['base','report','account'],
+    'depends': ['report','account'],
     'application': True,
     'data': [
         'views/balance_sheet_analysis_report.xml',

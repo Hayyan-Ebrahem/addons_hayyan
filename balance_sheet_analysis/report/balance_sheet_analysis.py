@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-
+import time
 from odoo import models, fields, api
 
 
 class BalanceSheetAnalysisReport(models.AbstractModel):
-    _name = 'report.balance_sheet_analysis.report_sheetanalysis'
     _inherit = 'report.account.report_financial'
     print(' BALANCE_SHEET')
 
@@ -31,6 +30,6 @@ class BalanceSheetAnalysisReport(models.AbstractModel):
             'data': data['form'],
             'docs': docs,
             'time': time,
-            'get_account_lines': account_res,
+            'get_account_lines': account_res['name'],
         }
-        return self.env['report'].render('balance_sheet_analysis.report_sheetanalysis', docargs)
+        return self.env['report'].render('account.report_financial', docargs)

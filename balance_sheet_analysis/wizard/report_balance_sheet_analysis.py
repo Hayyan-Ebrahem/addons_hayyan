@@ -5,32 +5,24 @@ from odoo import api, fields, models
 class BalanceSheetAnalysisReport(models.TransientModel):
 
     _name = 'balance.sheet.analysis.report'
+    _inherit = 'accounting.report'
     _description = 'Balance Sheet Analysis Report'
 
-    @api.model
-    def _get_account_report(self):
-        reports = []
-        if self._context.get('active_id'):
-            menu = self.env['ir.ui.menu'].browse(self._context.get('active_id')).name
-            print('-------------- menu:',menu)
-            reports = self.env['account.financial.report'].search([('name', 'ilike', menu)])
-        return reports and reports[0] or False
+    
+    # @api.multi
+    # def check_report(self):
+    #     res = super(BalanceSheetAnalysisReport, self).check_report()
+    #     data = {}
+    #     data['form'] = self.read(['account_report_id', 'date_from_cmp', 'date_to_cmp', 'journal_ids', 'filter_cmp', 'target_move'])[0]
+    #     for field in ['account_report_id']:
+    #         if isinstance(data['form'][field], tuple):
+    #             data['form'][field] = data['form'][field][0]
+    #     comparison_context = self._build_comparison_context(data)
+    #     res['data']['form']['comparison_context'] = comparison_context
+    #     return res
 
-
-    date_from = fields.Datetime(string='Start Date')
-    date_to = fields.Datetime(string='End Date')
-    account_report_id = fields.Many2one('account.financial.report', string='Account Reports', required=True, default=_get_account_report)
-
- 
-
-    @api.multi
-    def check_report(self):
-        data = {}
-        data['form'] = self.read(['account_report_id','date_from', 'date_to'])[0]
-        #data['form']['used_context'] = dict(used_context, lang=self.env.context.get('lang', 'en_US'))
-
-        return self._print_report(data)
 
     def _print_report(self, data):
-     
-        return self.env['report'].get_action(self, 'balance_sheet_analysis.report_sheetanalysis', data=data)
+        data['form'].update(self.read(['date_from_cmp', 'debit_credit', 'date_to_cmp', 'filter_cmp', 'account_report_id', 'enable_filter', 'label_filter', 'target_move'])[0])
+        print('|||||||||||||||||||||||||||||||||||||||||||||||||')
+        return self.env['report'].get_action(self, 'account.report_financial', data=data)
