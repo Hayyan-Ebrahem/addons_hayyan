@@ -4,10 +4,10 @@
 
     <record id="report_sheetanalysis_view" model="ir.ui.view">
         <field name="name">Sales Advertising Report</field>
-        <field name="model">balance.sheet.analysis.report</field>
+        <field name="model">accounting.report</field>
         <field name="arch" type="xml">
             <form>
-          
+          <field name="account_report_id" domain="[('parent_id','=',False)]" can_create="true" can_write="true" modifiers="{'required': true}"/>
                 <group col="4">
                     <field name="date_from" />
                     <field name="date_to" />
@@ -21,15 +21,20 @@
         </field>
     </record>
 
+
     <record id="action_balance_sheet_analysis" model="ir.actions.act_window">
         <field name="name">Balance Sheet Analysis</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">balance.sheet.analysis.report</field>
+        <field name="res_model">accounting.report</field>
         <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="report_sheetanalysis_view"/>
         <field name="target">new</field>
+        <field name="context" eval="{'default_account_report_id':ref('account.account_financial_report_balancesheet0')}"/>
+
     </record>
+
+ 
 
     <menuitem id="balance_sheet_analysis"
         name="Balance Sheet Analysis"

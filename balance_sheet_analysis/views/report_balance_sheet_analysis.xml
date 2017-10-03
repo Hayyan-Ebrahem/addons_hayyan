@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<template id="report_salesadv">
+<template id="report_sheet_analysis">
     <t t-call="report.html_container">
         <t t-call="report.internal_layout">
            
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div>
-                        <t t-esc="get_account_lines">
+                        <t t-esc="account_res">
                        
                         </t>
            
