@@ -4,6 +4,7 @@ from odoo import models, fields, api
 
 
 class BalanceSheetAnalysisReport(models.AbstractModel):
+    _name = 'balance_sheet_analysis.report_sheet_analysis'
     _inherit = 'report.account.report_financial'
     print(' BALANCE_SHEET')
 
@@ -18,9 +19,9 @@ class BalanceSheetAnalysisReport(models.AbstractModel):
             
         self.model = self.env.context.get('active_model')
         docs = self.env[self.model].browse(self.env.context.get('active_id'))        
-
         print('\n\n')
         print('---------------------------------- data :',data)
+      
         account_res = self.get_account_lines(data.get('form'))
 
 
@@ -30,6 +31,6 @@ class BalanceSheetAnalysisReport(models.AbstractModel):
             'data': data['form'],
             'docs': docs,
             'time': time,
-            'get_account_lines': account_res['name'],
+            'get_account_lines': account_res,
         }
-        return self.env['report'].render('account.report_financial', docargs)
+        return self.env['report'].render('balance_sheet_analysis.report_sheet_analysis', docargs)

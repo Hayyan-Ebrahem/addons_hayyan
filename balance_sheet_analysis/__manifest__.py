@@ -1,6 +1,6 @@
 {
     'name': 'Balance Sheet Analysis Application',
-    'description': 'Manage personal To-Do tasks',
+    'description': 'Balance Sheet Analysis Report',
     'author': 'Hayyan Ebrahem',
     'depends': ['report','account'],
     'application': True,
