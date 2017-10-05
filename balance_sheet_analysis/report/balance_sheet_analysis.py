@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 
 class BalanceSheetAnalysisReport(models.AbstractModel):
-    _name = 'balance_sheet_analysis.report_sheet_analysis'
+    _name = 'report.balance_sheet_analysis.report_balanceanalysis'
     _inherit = 'report.account.report_financial'
     print(' BALANCE_SHEET')
 
@@ -22,7 +22,7 @@ class BalanceSheetAnalysisReport(models.AbstractModel):
         print('\n\n')
         print('---------------------------------- data :',data)
       
-        account_res = self.get_account_lines(data.get('form'))
+        account_res = super(BalanceSheetAnalysisReport,self).get_account_lines(data.get('form'))
 
 
         docargs = {
@@ -33,4 +33,4 @@ class BalanceSheetAnalysisReport(models.AbstractModel):
             'time': time,
             'get_account_lines': account_res,
         }
-        return self.env['report'].render('balance_sheet_analysis.report_sheet_analysis', docargs)
+        return self.env['report'].render('balance_sheet_analysis.report_balanceanalysis', docargs)

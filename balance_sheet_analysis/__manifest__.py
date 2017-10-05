@@ -7,5 +7,5 @@
     'data': [
         'views/balance_sheet_analysis_report.xml',
         'views/report_balance_sheet_analysis.xml',
-        'wizard/report_balance_sheet_analysis_views.xml']#,'report/analysis.xml']
+        'wizard/report_balance_sheet_analysis_view.xml']#,'report/analysis.xml']
 }

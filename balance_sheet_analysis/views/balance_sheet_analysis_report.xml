@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+
         <report 
-            id="action_report_balance_sheet_analysis"
+            id="report_balance_sheet_analysis"
             string="Balance Sheet Analysis"
-            model="balance_sheet_analysis.report_sheet_analysis" 
-            report_type="qweb-html"
-            file="balance_sheet_analysis.report_sheet_analysis" 
-            name="balance_sheet_analysis.report_sheet_analysis" 
+            model="balance_sheet_analysis.report_balanceanalysis" 
+            report_type="qweb-pdf"
+            file="balance_sheet_analysis.report_balanceanalysis" 
+            name="balance_sheet_analysis.report_balanceanalysis" 
         />
-    </data>
+
 </odoo>
