@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <report 
+            id="report_customer_sale_report"
+            string="Customer Sale Report"
+            model="customer_sale_report.report_customersale" 
+            report_type="qweb-pdf"
+            file="customer_sale_report.report_customersale" 
+            name="customer_sale_report.report_customersale" 
+        />
+
+</odoo>

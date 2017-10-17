@@ -9,8 +9,20 @@ class BalanceSheetAnalysisReport(models.AbstractModel):
     print(' BALANCE_SHEET')
 
 
-    def _compute_report_sheetnalysis(self,report):
-    	return ' CURRENT RATIO'
+    def _compute_current_ratio(self,lines):
+        for line in lines:
+            print(line.get('balance'),line.get('name'),line.get('account_type'))
+    	return lines[0]['balance']
+
+
+    def _compute_quick_ratio(self,lines):
+        return lines['balance']
+
+
+
+    def _compute_working_capital(self,lines):
+        return lines['balance']
+
 
     @api.model
     def render_html(self, docids, data=None):
@@ -22,8 +34,8 @@ class BalanceSheetAnalysisReport(models.AbstractModel):
         print('\n\n')
         print('---------------------------------- data :',data)
       
-        account_res = super(BalanceSheetAnalysisReport,self).get_account_lines(data.get('form'))
-
+        lines = super(BalanceSheetAnalysisReport,self).get_account_lines(data.get('form'))
+        print ('----------- lines:',lines)
 
         docargs = {
             'doc_ids': self.ids,
@@ -31,6 +43,6 @@ class BalanceSheetAnalysisReport(models.AbstractModel):
             'data': data['form'],
             'docs': docs,
             'time': time,
-            'get_account_lines': account_res,
+            'current_ratio': self._compute_current_ratio(lines),
         }
         return self.env['report'].render('balance_sheet_analysis.report_balanceanalysis', docargs)

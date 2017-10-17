@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="report_sheet_analysis_view" model="ir.ui.view">
+        <field name="name">Customer Sale Report</field>
+        <field name="model">customer.sale.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Customer sale Report ">
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+        
+                <footer>
+                    <button name="check_report" string="PrintTT" type="object" default_focus="1" class="oe_highlight" />
+                    or 
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_customer_sale_report" model="ir.actions.act_window">
+        <field name="name">Customer Sale Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.sale.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="report_sheet_analysis_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="customer_sale_report"
+        name="Customer Sale Report"
+        parent="sales_team.menu_sales" 
+        action="action_customer_sale_report"/>
+
+ 
+</odoo>

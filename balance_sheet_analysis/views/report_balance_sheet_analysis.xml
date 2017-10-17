@@ -32,7 +32,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr t-foreach="get_account_lines" t-as="a">
+                            <tr t-foreach="current_rati" t-as="a">
                                 <t t-if="a['level'] != 0">
                                     <t t-if="a.get('level') &gt; 3"><t t-set="style" t-value="'font-weight: normal;'"/></t>
                                     <t t-if="not a.get('level') &gt; 3"><t t-set="style" t-value="'font-weight: bold;'"/></t>
