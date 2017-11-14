@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_profit_analysis_report_profit_analysis_report,profit_analysis_report.profit_analysis_report,model_profit_analysis_report_profit_analysis_report,,1,0,0,0
