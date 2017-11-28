@@ -13,7 +13,7 @@
                     </group>
         
                 <footer>
-                    <button name="check_report" string="PrintTT" type="object" default_focus="1" class="oe_highlight" />
+                    <button name="check_report" string="Print" type="object" default_focus="1" class="oe_highlight" />
                     or 
                     <button string="Cancel" class="oe_link" special="cancel" />
                 </footer>
@@ -31,10 +31,10 @@
         <field name="target">new</field>
     </record>
 
-    <menuitem id="customer_sale_report"
-        name="Customer Sale Report"
-        parent="sales_team.menu_sales" 
-        action="action_customer_sale_report"/>
 
- 
+     <menuitem 
+        name="Customer Sales Report" 
+        action="action_customer_sale_report" 
+        id="customer_sale_report" 
+        parent="sales_team.menu_sale_report"/>
 </odoo>

@@ -1,1 +1,1 @@
-import customer_sale_report
+import customer_sale_analysis

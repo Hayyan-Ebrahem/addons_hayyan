@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_open_item_report_open_item_report,open_item_report.open_item_report,model_open_item_report_open_item_report,,1,0,0,0
